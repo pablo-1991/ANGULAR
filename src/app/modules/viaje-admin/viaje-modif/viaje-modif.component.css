@@ -1,0 +1,46 @@
+.card {
+  display: flex;
+  background-color: #d282e6;
+  margin: 1em auto;
+  width: 80%;
+  flex-direction: column;
+  border: 1px solid #03151a;
+  border-radius: 15px;
+}
+
+.title {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.back {
+  align-self: center;
+  position: absolute;
+  color: #131263;
+}
+
+.back:hover{
+  background-color: #8989b1;
+  color: black;
+}
+
+.titulo{
+  margin: auto;
+  color: #131263;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-field {
+  display: flex;
+  width: 80%;
+}
+
+.hint {
+  color: rgb(255, 0, 0);
+  font-size: small;
+}

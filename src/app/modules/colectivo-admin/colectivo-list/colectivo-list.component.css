@@ -1,0 +1,67 @@
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titulo{
+  color: #5755e6;
+
+}
+
+.mat-column-id, 
+.mat-column-cantidadAsientos,
+.mat-column-modelo, 
+.mat-column-acciones,
+.mat-column-patente{
+  text-align: center;
+  background-color: #ee6f66;
+}
+
+
+.dialogo{
+  border: 1px solid #630a03;
+  background-color: #c98f86;
+  border-radius: 5px;
+}
+
+.dialog-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dialog-icon{
+  font-size: 350%;
+  margin-top: 20px;
+  height: max-content;
+  width: max-content;}
+
+
+.dialog-content{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.fila{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.col1{
+  display: flex;
+  flex-direction: column;
+}
+
+.col2{
+  display: flex;
+  flex-direction: column;
+  margin-left: 1em;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: space-around;
+}
