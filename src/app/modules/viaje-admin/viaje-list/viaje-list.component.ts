@@ -63,6 +63,7 @@ export class ViajeListComponent implements OnInit {
     this.router.navigate(['layout', 'viajes', 'modif', v.id]);
   }
 
+
   dialogoEliminar(v: Viaje) {
     const dialogRef = this.dialog.open(DialogoEliminar, {
       data: {

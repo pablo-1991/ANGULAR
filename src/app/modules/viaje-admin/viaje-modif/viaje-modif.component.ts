@@ -16,7 +16,7 @@ import { ViajeDTO, ViajeService } from 'src/app/services/viaje.service';
   templateUrl: './viaje-modif.component.html',
   styleUrls: ['./viaje-modif.component.css']
 })
-export class ViajeModifComponent implements OnInit{
+export class ViajeModifComponent implements OnInit {
   nuevo: boolean = true;
 
   viajeForm: FormGroup = this.fb.group({
@@ -43,7 +43,7 @@ export class ViajeModifComponent implements OnInit{
     private modeloService: ModeloService,
     private personService: PersonaService,
     private snackBar: MatSnackBar,
-    ){}
+  ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
@@ -54,7 +54,7 @@ export class ViajeModifComponent implements OnInit{
       }
     });
 
-    this.coleService.findAll().subscribe( res => {
+    this.coleService.findAll().subscribe(res => {
       //@ts-ignore
       this.coleList = res.body.map(json => {
         const colectivo = new Colectivo(
@@ -66,9 +66,9 @@ export class ViajeModifComponent implements OnInit{
         this.findModeloColectivo(colectivo);
         return colectivo;
       });
-    },error =>{
+    }, error => {
       console.log(error);
-      this.snackBar.open(error, 'Cerrar',{
+      this.snackBar.open(error, 'Cerrar', {
         horizontalPosition: 'center',
         verticalPosition: 'top',
       });
@@ -80,8 +80,8 @@ export class ViajeModifComponent implements OnInit{
     })
   }
 
-  getColectivo(item: Colectivo){
-    return item.patente + " - "+ item.cantidadAsientos+" - "+ item.modelo?.marca;
+  getColectivo(item: Colectivo) {
+    return item.patente + " - " + item.cantidadAsientos + " - " + item.modelo?.marca;
   }
 
   findViaje(id: number) {
@@ -95,7 +95,8 @@ export class ViajeModifComponent implements OnInit{
             res.body.fechaLlegada,
             res.body.fechaSalida,
             res.body.idColectivo,
-            );
+          );
+          this.viajeSeleccionado.pasajeros = res.body.personaId;
           this.viajeForm.patchValue({
             id: this.viajeSeleccionado.id,
             origen: this.viajeSeleccionado.lugarSalida,
@@ -103,6 +104,7 @@ export class ViajeModifComponent implements OnInit{
             fechaSalida: this.viajeSeleccionado.fechaSalida,
             fechaLlegada: this.viajeSeleccionado.fechaLlegada,
             colectivo: this.viajeSeleccionado.idCole,
+            pasajeros: this.viajeSeleccionado.pasajeros
           });
         }
       },
@@ -114,10 +116,10 @@ export class ViajeModifComponent implements OnInit{
     );
   }
 
-  findModeloColectivo(c: Colectivo){
-    this.modeloService.findOne(c.modeloId).subscribe( res => {
-      if(res.body){
-        c.modelo = new Modelo(res.body.id,res.body.nombre,res.body.marca);
+  findModeloColectivo(c: Colectivo) {
+    this.modeloService.findOne(c.modeloId).subscribe(res => {
+      if (res.body) {
+        c.modelo = new Modelo(res.body.id, res.body.nombre, res.body.marca);
       }
     })
   }
